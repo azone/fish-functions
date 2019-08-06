@@ -3,7 +3,7 @@ function pod --description="execute pod dynamically"
         bundle show cocoapods 2>&1 >/dev/null
         if test $status -ne 0
             set_color red; echo "cocoapods not installed, please execute \"bundle install\" to install." >&2
-            exit 1
+            return 1
         end
         bundle exec pod $argv
     else
