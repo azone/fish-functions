@@ -10,7 +10,7 @@ function ox --description="open Xcode project or workspace automatically"
                 open -a Xcode
             end
         else
-            open -a Xcode $PROJ >/dev/null ^&1
+            open -a Xcode $PROJ >/dev/null 2>&1
             if test $status -ne 0
                 set_color red; echo "xcworkspace or xcodeproj not found."
             end

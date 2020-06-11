@@ -10,7 +10,7 @@ function oa --description="open Xcode project or workspace automatically using A
                 open -a AppCode
             end
         else
-            open -a AppCode $PROJ >/dev/null ^&1
+            open -a AppCode $PROJ 2>&1 >/dev/null
             if test $status -ne 0
                 set_color red; echo "xcworkspace or xcodeproj not found."
             end
