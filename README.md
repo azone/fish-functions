@@ -26,3 +26,12 @@ ox [xxx.xcworkspace | xxx.xcodeproj]
 `start-proxy` 和 `stop-proxy`：设置和停止终端代理，如果你想使用的话可能需要自己更改代理地址和端口
 
 `vs`：打开 Visual Studio Code，如果没有指定需要打开的文件夹或者文件，则默认打开当前文件夹。
+
+`run-until`: 执行指定命令，直到成功为止
+
+```fish
+# 使用用法
+run-until [INTERVAL] COMMAND
+```
+
+
