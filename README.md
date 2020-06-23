@@ -23,6 +23,8 @@ ox [xxx.xcworkspace | xxx.xcodeproj]
 
 `pod`：判断当前目录下是否有 Gemfile 文件并且 Gemfile 文件中是否包含 cocoapods 来决定是通过全局安装的 pod 还是 Gemfile 指定的 pod，使用方法和 pod 完全一样。
 
+`fastlane`：判断当前目录下是否有 Gemfile 文件并且 Gemfile 文件中是否包含 fastlane 来决定是通过全局安装的 pod 还是 Gemfile 指定的 fastlane，使用方法和 fastlane 完全一样。
+
 `start-proxy` 和 `stop-proxy`：设置和停止终端代理，如果你想使用的话可能需要自己更改代理地址和端口
 
 `vs`：打开 Visual Studio Code，如果没有指定需要打开的文件夹或者文件，则默认打开当前文件夹。
