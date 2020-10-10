@@ -5,14 +5,17 @@ function oa --description="open Xcode project or workspace automatically using A
             set PROJ *.xcodeproj
         end
         if test -z $PROJ
-            read -n 1 -p 'set_color yellow; echo  "Xcode workspace or project file not found, do you still want to open AppCode?[y/n]:"' result
+            set PROJ Package.swift
+        end
+        if test -z $PROJ
+            read -n 1 -p 'set_color yellow; echo  "Xcode workspace, project file or Swift Package not found, do you still want to open AppCode?[y/n]:"' result
             if begin test $result = "y"; or test $result = "Y"; end
                 open -a AppCode
             end
         else
             open -a AppCode $PROJ 2>&1 >/dev/null
             if test $status -ne 0
-                set_color red; echo "xcworkspace or xcodeproj not found."
+                set_color red; echo "xcworkspace, xcodeproj or Package.swift not found."
             end
         end
     else
