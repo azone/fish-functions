@@ -4,7 +4,7 @@ function oa --description="open Xcode project or workspace automatically using A
         if test -z $PROJ
             set PROJ *.xcodeproj
         end
-        if test -z $PROJ
+        if test -z $PROJ && test -f "Package.swift"
             set PROJ Package.swift
         end
         if test -z $PROJ

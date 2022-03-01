@@ -4,7 +4,7 @@ function ox --description="open Xcode project or workspace automatically"
         if test -z $PROJ
             set PROJ *.xcodeproj
         end
-        if test -z $PROJ
+        if test -z $PROJ && test -f "Package.swift"
             set PROJ Package.swift
         end
         if test -z $PROJ
