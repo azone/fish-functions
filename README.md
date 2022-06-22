@@ -36,4 +36,12 @@ ox [xxx.xcworkspace | xxx.xcodeproj]
 run-until [INTERVAL] COMMAND
 ```
 
+---
 
+git alias
+```ini
+[alias]
+  sync = !git pull && git push # 先 pull 再 push
+  sorted-branches = branch --sort -committerdate -v # 按照提交时间显示分支，后面可以加 -a/-r/-l 分别表示所有、远程和本地分支
+  graph = log --all --graph --simplify-by-decoration # 简化显示 git log 信息（只显示分支和 tag 及合并关系）
+```
