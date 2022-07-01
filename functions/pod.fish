@@ -8,6 +8,10 @@ function pod --description="execute pod dynamically"
         bundle exec pod $argv
     else
         set -l POD_SHELL (which pod)
+        if test $status -ne 0
+            set_color red; echo "pod command not found, please make sure Cocoapods was installed." >&2
+            return 2
+        end
         $POD_SHELL $argv
     end
 end
