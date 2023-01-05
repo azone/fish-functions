@@ -1,4 +1,8 @@
 function oa --description="open Xcode project or workspace automatically using AppCode"
+    if string match -qv "Darwin" (uname -s)
+        set_color red; echo "macOS Only"
+    end
+
     if test (count $argv) -eq 0
         set -l PROJ *.xcworkspace
         if test -z $PROJ
