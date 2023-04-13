@@ -19,8 +19,6 @@ find_same_file FILE SEARCH_DIRECTORY
 ox [xxx.xcworkspace | xxx.xcodeproj]
 ```
 
-`oa`：功能和使用方法和 `ox` 类似，只不过是通过 AppCode 打开
-
 `pod`：判断当前目录下是否有 Gemfile 文件并且 Gemfile 文件中是否包含 cocoapods 来决定是通过全局安装的 pod 还是 Gemfile 指定的 pod，使用方法和 pod 完全一样。
 
 `fastlane`：判断当前目录下是否有 Gemfile 文件并且 Gemfile 文件中是否包含 fastlane 来决定是通过全局安装的 pod 还是 Gemfile 指定的 fastlane，使用方法和 fastlane 完全一样。
@@ -45,4 +43,5 @@ git alias
   sorted-branches = branch --sort -committerdate -v # 按照提交时间显示分支，后面可以加 -a/-r/-l 分别表示所有、远程和本地分支
   graph = log --all --graph --simplify-by-decoration # 简化显示 git log 信息（只显示分支和 tag 及合并关系）
   copy-branch = !git branch --show-current | xargs | pbcopy # 拷贝当前分支名到粘贴板
+  list-tags = tag -l --sort=-creatordate # 按照创建日期倒序显示 tag 列表
 ```
