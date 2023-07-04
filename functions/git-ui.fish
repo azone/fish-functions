@@ -8,7 +8,7 @@ function git-ui -d 'Open the git repo in Fork app'
     set REPO_PATH (git rev-parse --show-toplevel 2>/dev/null)
     if test -z $REPO_PATH
         set_color red; echo "No git repository found."; set_color normal
-        return 0
+        return 1
     end
     set FORK_CLI "$FORK_PATH/Contents/Resources/fork_cli"
     $FORK_CLI $REPO_PATH
