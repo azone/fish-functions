@@ -44,5 +44,5 @@ git alias
   graph = log --all --graph --simplify-by-decoration # 简化显示 git log 信息（只显示分支和 tag 及合并关系）
   copy-branch = !git branch --show-current | xargs | pbcopy # 拷贝当前分支名到粘贴板
   list-tags = tag -l --sort=-creatordate # 按照创建日期倒序显示 tag 列表
-  ui = !open -a Fork $(git rev-parse --show-toplevel 2>/dev/null) # 通过 Fork 打开当前仓库
+  ui = !fish -c git-ui # 通过 Fork 打开当前仓库，需要提前将 git-ui.fish 文件放到 ~/.config/fish/functions 文件夹中
 ```
