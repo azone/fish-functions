@@ -11,7 +11,7 @@ function trim-arch -d "Trim unused architecture from a binary or path" -a binary
         return 1
     end
 
-    set -l before_size (du -sh $binary_path | cut -d \t -f 1)
+    set -l before_size (du -sh $binary_path | cut -f1)
     if test -f $binary_path
         _trim_arch_binary $binary_path
     else
@@ -21,7 +21,7 @@ function trim-arch -d "Trim unused architecture from a binary or path" -a binary
         end
     end
 
-    set -l after_size (du -sh $binary_path | cut -d \t -f 1)
+    set -l after_size (du -sh $binary_path | cut -f1)
     if test $before_size = $after_size
         set_color yellow
         echo "Binary is already trimmed: $binary_path"
@@ -52,9 +52,9 @@ function _trim_arch_binary -a binary_path
         return 0
     end
 
-    set -l before_size (du -sh $binary_path | cut -d \t -f 1)
+    set -l before_size (du -sh $binary_path | cut -f1)
     lipo $binary_path -thin $ARCH -output $binary_path
-    set -l after_size (du -sh $binary_path | cut -d \t -f 1)
+    set -l after_size (du -sh $binary_path | cut -f1)
     set_color green
     echo "Trimmed $before_size to $after_size: $binary_path"
     set_color normal
