@@ -34,6 +34,12 @@ ox [xxx.xcworkspace | xxx.xcodeproj]
 run-until [INTERVAL] COMMAND
 ```
 
+`trim-arch`: 删除指定目录下的程序、framework 和 dylib 文件无用架构，使用方法：
+
+```fish
+trim-arch [DIRECTORY | FILE]
+```
+
 ---
 
 git alias
