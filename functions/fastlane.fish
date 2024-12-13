@@ -1,4 +1,4 @@
-function fastlane --description="execute fastlane dynamically"
+function fastlane --description="execute fastlane dynamically" --wraps "fastlane"
     if test -f Gemfile && grep --silent 'fastlane' Gemfile
         bundle info fastlane 2>&1 >/dev/null
         if test $status -ne 0

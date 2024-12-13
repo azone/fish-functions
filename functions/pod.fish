@@ -1,4 +1,4 @@
-function pod --description="execute pod dynamically"
+function pod --description="execute pod dynamically" --wraps "pod"
     if test -f Gemfile && grep --silent 'cocoapods' Gemfile
         bundle info cocoapods 2>&1 >/dev/null
         if test $status -ne 0
