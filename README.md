@@ -34,11 +34,17 @@ ox [xxx.xcworkspace | xxx.xcodeproj]
 run-until [INTERVAL] COMMAND
 ```
 
-`trim-arch`: 删除指定目录下的程序、framework 和 dylib 文件无用架构，使用方法：
+`trim-arch`: 删除指定目录下的程序、framework 和 dylib 文件无用架构（如：i386，x86_64 等），使用方法：
 
 ```fish
 trim-arch [DIRECTORY | FILE]
 ```
+
+依赖:
+    - [fd](https://github.com/sharkdp/fd)(可以使用 `find` 命令代替)
+    - [ripgrep](https://github.com/BurntSushi/ripgrep)(可以使用 `grep` 命令代替)
+    - lipo (需要安装 [Xcode](https://developer.apple.com/xcode/))
+仅提供一个思路，你也可以自己用其他脚本霍语言来实现，欢迎 PR。
 
 ---
 
