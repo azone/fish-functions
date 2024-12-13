@@ -41,9 +41,11 @@ trim-arch [DIRECTORY | FILE]
 ```
 
 依赖:
-    - [fd](https://github.com/sharkdp/fd)(可以使用 `find` 命令代替)
-    - [ripgrep](https://github.com/BurntSushi/ripgrep)(可以使用 `grep` 命令代替)
-    - lipo (需要安装 [Xcode](https://developer.apple.com/xcode/))
+
+- [fd](https://github.com/sharkdp/fd)(可以使用 `find` 命令代替)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)(可以使用 `grep` 命令代替)
+- lipo (需要安装 [Xcode](https://developer.apple.com/xcode/))
+
 仅提供一个思路，你也可以自己用其他脚本霍语言来实现，欢迎 PR。
 
 ---
