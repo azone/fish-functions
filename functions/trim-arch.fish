@@ -56,6 +56,13 @@ function _trim_arch_binary -a binary_path
         return 1
     end
 
+    if not test -w $binary_path
+        set_color red
+        echo "Binary is not writable: $binary_path"
+        set_color normal
+        return 1
+    end
+
     set -l arch_count (echo $lib_archs | wc -w | string trim)
     if test $arch_count -eq 1
         set_color green
