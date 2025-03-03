@@ -11,7 +11,7 @@ function trim-arch -d "Trim unused architecture from a binary or path" -a binary
         return 1
     end
 
-    if xattr -p com.apple.appstore.metadata $binary_path &> /dev/null
+    if xattr -p com.apple.appstore.metadata $binary_path &>/dev/null
         set_color green
         echo "$binary_path is installed by App Store, Skipped."
         return 0
@@ -40,7 +40,7 @@ function trim-arch -d "Trim unused architecture from a binary or path" -a binary
 end
 
 function _trim_arch_binary -a binary_path
-    if xattr -p com.apple.appstore.metadata $binary_path &> /dev/null
+    if xattr -p com.apple.appstore.metadata $binary_path &>/dev/null
         set_color green
         echo "$binary_path is installed by App Store, Skipped."
         return 0
@@ -50,9 +50,9 @@ function _trim_arch_binary -a binary_path
     set -l lib_archs (lipo $binary_path -archs 2>/dev/null | string trim)
 
     if test -z $lib_archs
-        set_color red
-        echo "$binary_path is not a Mach-O binary">&2
-        set_color normal
+        # set_color red
+        # echo "$binary_path is not a Mach-O binary" >&2
+        # set_color normal
         return 1
     end
 
