@@ -40,6 +40,11 @@ run-until [INTERVAL] COMMAND
 trim-arch [DIRECTORY | FILE]
 ```
 
+`search-fat-apps`: 搜索指定目录下的胖架构（包含多个架构二进制文件的 app）app：
+```fish
+search-fat-apps [DIRECTORY] # default is /Applications
+```
+
 依赖:
 
 - [fd](https://github.com/sharkdp/fd)(可以使用 `find` 命令代替)
