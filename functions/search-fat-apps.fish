@@ -33,25 +33,29 @@ function search-fat-apps -a apps_path -d "Search fat architecture apps"
     end
 end
 
-    function _is_subapp -a app
-        set -l app_path "$(realpath $app)/"
-        set app_count (echo $app_path | rg -F '.app/' --count-matches)
-        if test $app_count -ge 2
+function _is_subapp -a app
+    set -l app_path "$(realpath $app)/"
+    set app_count (echo $app_path | rg -F '.app/' --count-matches)
+    if test $app_count -ge 2
+        return 0
+    end
+
+    return 1
+end
+
+function _has_fat_binary -a app
+    set -l binaries (fd -t x --search-path $app)
+    for binary in $binaries
+        if not test -w $binary
+            continue
+        end
+
+        set -l archs (lipo $binary -archs 2>/dev/null | string trim)
+        set -l arch_count (echo $archs | wc -w | string trim)
+        if test $arch_count -ge 2 && string match -q "*$(arch)*" $archs
             return 0
         end
-
-        return 1
     end
 
-    function _has_fat_binary -a app
-        set -l binaries (fd -t x --search-path $app)
-        for binary in $binaries
-            set -l archs (lipo $binary -archs 2>/dev/null | string trim)
-            set -l arch_count (echo $archs | wc -w | string trim)
-            if test $arch_count -ge 2 && string match -q "*$(arch)*" $archs
-                return 0
-            end
-        end
-
-        return 1
-    end
+    return 1
+end
