@@ -34,7 +34,8 @@ function trim-arch -d "Trim unused architecture from a binary or path" -a binary
         set_color normal
         return 0
     end
-    set_color green
+
+    set_color -o brgreen
     echo "Totally Trimmed $before_size to $after_size: $binary_path"
     set_color normal
 end
@@ -65,9 +66,12 @@ function _trim_arch_binary -a binary_path
 
     set -l arch_count (echo $lib_archs | wc -w | string trim)
     if test $arch_count -eq 1
-        set_color green
-        echo "Binary is already trimmed or only has one architecture($lib_archs): $binary_path"
-        set_color normal
+        if test $lib_archs != $ARCH
+            set_color green
+            echo "Binary only has one architecture($lib_archs): $binary_path"
+            set_color normal
+        end
+
         return 0
     end
 

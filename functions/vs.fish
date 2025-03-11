@@ -3,9 +3,11 @@ function vs --description="Open using Visual Studio Code"
         set_color red; echo "macOS Only"
     end
 
+    set -l bundle_id "com.microsoft.VSCode"
+
     if test (count $argv) -eq 0
-        open -a Visual\ Studio\ Code .
+        open -b $bundle_id .
     else
-        open -a Visual\ Studio\ Code $argv
+        open -b $bundle_id $argv
     end
 end
