@@ -45,6 +45,11 @@ trim-arch [DIRECTORY | FILE]
 search-fat-apps [DIRECTORY] # default is /Applications
 ```
 
+`remove-unused-framework-versions`: 移除 framework 中无用的版本：
+```fish
+remove-unused-framework-versions [DIRECTORY] # default is /Applications
+```
+
 依赖:
 
 - [fd](https://github.com/sharkdp/fd)(可以使用 `find` 命令代替)
