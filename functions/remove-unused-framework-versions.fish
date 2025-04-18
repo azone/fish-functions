@@ -16,7 +16,6 @@ function remove-unused-framework-versions -d "Remove unused framework versions" 
         end
 
         set -l current (readlink $current_dir)
-        set -l all_versions (ls $versions_dir)
         set -l unused_frameworks (fd --max-depth 1 -E "Current" -a -E "$current" --search-path $versions_dir)
         for unused in $unused_frameworks
             set_color green
